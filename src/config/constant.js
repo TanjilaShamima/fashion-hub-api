@@ -3,12 +3,8 @@ dotenv.config();
 const fs = require("fs");
 const path = require("path");
 
-const privateKeyPath = process.env.JWT_ACCESS_PRIVATE_KEY
-  ? path.resolve(process.env.JWT_ACCESS_PRIVATE_KEY)
-  : "";
-const publicKeyPath = process.env.JWT_ACCESS_PUBLIC_KEY
-  ? path.resolve(process.env.JWT_ACCESS_PUBLIC_KEY)
-  : "";
+const privateKey = process.env.JWT_ACCESS_PRIVATE_KEY || "";
+const publicKey = process.env.JWT_ACCESS_PUBLIC_KEY || "";
 
 const appConfig = {
   name: process.env.API_NAME || "API",
@@ -47,8 +43,8 @@ const appConfig = {
     jwtPasswordResetKey: process.env.JWT_RESET_PASSWORD_KEY,
     jwtRefreshKey: process.env.JWT_REFRESH_KEY,
     accessKey: {
-      privateKey: privateKeyPath ? fs.readFileSync(privateKeyPath, "utf8") : "",
-      publicKey: publicKeyPath ? fs.readFileSync(publicKeyPath, "utf8") : "",
+      privateKey: privateKey,
+      publicKey: publicKey,
     },
   },
   regex: {
