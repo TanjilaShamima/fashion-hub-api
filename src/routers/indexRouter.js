@@ -1,0 +1,57 @@
+const router = require("express").Router();
+const authRouter = require("./authRouter");
+const userRouter = require("./userRouter");
+const adminRouter = require("./adminRouter");
+const craftTypeRouter = require("./craftTypeRouter");
+const productRouter = require("./productRouter");
+const storyRouter = require("./storyRouter");
+const cartRouter = require("./cartRouter");
+const orderRouter = require("./orderRouter");
+const paymentRouter = require("./paymentRouter");
+const reviewRouter = require("./reviewRouter");
+const transactionRouter = require("./transactionRouter");
+
+/**
+ * @swagger
+ * tags:
+ *   - name: Auth
+ *     description: Authentication and login
+ *   - name: Admin
+ *     description: Admin management and operations
+ *   - name: Craft Type
+ *     description: Craft type management and operations
+ *   - name: User
+ *     description: User management and operations
+ *   - name: Address
+ *     description: Address management and operations
+ *   - name: Artisan
+ *     description: Artisan management and operations
+ *   - name: Story
+ *     description: Story management and operations
+ *   - name: Product
+ *     description: Product management and operations
+ *   - name: Reviews
+ *     description: Reviews management and operations
+ *   - name: Cart
+ *     description: Cart management and operations
+ *   - name: Order
+ *     description: Order management and operations
+ *   - name: Payment
+ *     description: Payment management and operations
+ *   - name: Transaction
+ *     description: Transaction management and operations
+ */
+
+router.use("/auth", authRouter);
+router.use("/users", userRouter);
+router.use("/admin", adminRouter);
+router.use("/craft-types", craftTypeRouter);
+router.use("/products", productRouter);
+router.use("/stories", storyRouter);
+router.use("/reviews", reviewRouter);
+router.use("/carts", cartRouter);
+router.use("/orders", orderRouter);
+router.use("/payments", paymentRouter);
+router.use("/transactions", transactionRouter);
+
+module.exports = router;
